@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45073BB829144B3A00FFAB75 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 45073BB729144B3A00FFAB75 /* license.txt */; };
+		45073BBA29144B5D00FFAB75 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 45073BB929144B5D00FFAB75 /* readme.md */; };
 		45B56F4929142C8700D2B37F /* AppDevClubTicTacToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B56F4829142C8700D2B37F /* AppDevClubTicTacToeApp.swift */; };
 		45B56F4B29142C8700D2B37F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B56F4A29142C8700D2B37F /* ContentView.swift */; };
 		45B56F4D29142C8D00D2B37F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B56F4C29142C8D00D2B37F /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45073BB729144B3A00FFAB75 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		45073BB929144B5D00FFAB75 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		45B56F4529142C8700D2B37F /* AppDevClubTicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDevClubTicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B56F4829142C8700D2B37F /* AppDevClubTicTacToeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDevClubTicTacToeApp.swift; sourceTree = "<group>"; };
 		45B56F4A29142C8700D2B37F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +39,8 @@
 		45B56F3C29142C8700D2B37F = {
 			isa = PBXGroup;
 			children = (
+				45073BB729144B3A00FFAB75 /* license.txt */,
+				45073BB929144B5D00FFAB75 /* readme.md */,
 				45B56F4729142C8700D2B37F /* AppDevClubTicTacToe */,
 				45B56F4629142C8700D2B37F /* Products */,
 			);
@@ -125,7 +131,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45073BB829144B3A00FFAB75 /* license.txt in Resources */,
 				45B56F5029142C8D00D2B37F /* Preview Assets.xcassets in Resources */,
+				45073BBA29144B5D00FFAB75 /* readme.md in Resources */,
 				45B56F4D29142C8D00D2B37F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +278,7 @@
 				DEVELOPMENT_TEAM = 8XQR9YKLCL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tic Tac Toe";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +308,7 @@
 				DEVELOPMENT_TEAM = 8XQR9YKLCL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tic Tac Toe";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

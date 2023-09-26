@@ -29,7 +29,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 60) {
             // Who's turn it is
-            Text("\(self.gameTurn == .X ? "X" : "O")'s Turn")
+            Text("\(gameTurn == .X ? "X" : "O")'s Turn")
                 .font(.title) // Bigger font
                 .fontWeight(.heavy)
                 .underline(color: .accentColor) // Underline in our accent color
@@ -37,29 +37,29 @@ struct ContentView: View {
             
             // Top row
             HStack(spacing: 60) {
-                GameBoxView(systemName: self.$topLeft, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $topLeft, gameTurn: $gameTurn)
                 
-                GameBoxView(systemName: self.$topCenter, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $topCenter, gameTurn: $gameTurn)
                 
-                GameBoxView(systemName: self.$topRight, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $topRight, gameTurn: $gameTurn)
             }
             
             // Middle row
             HStack(spacing: 60) {
-                GameBoxView(systemName: self.$middleLeft, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $middleLeft, gameTurn: $gameTurn)
                 
-                GameBoxView(systemName: self.$middleCenter, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $middleCenter, gameTurn: $gameTurn)
                 
-                GameBoxView(systemName: self.$middleRight, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $middleRight, gameTurn: $gameTurn)
             }
             
             // Bottom row
             HStack(spacing: 60) {
-                GameBoxView(systemName: self.$bottomLeft, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $bottomLeft, gameTurn: $gameTurn)
                 
-                GameBoxView(systemName: self.$bottomCenter, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $bottomCenter, gameTurn: $gameTurn)
                 
-                GameBoxView(systemName: self.$bottomRight, gameTurn: self.$gameTurn)
+                GameBoxView(systemName: $bottomRight, gameTurn: $gameTurn)
             }
             
             // Winner text (if there is one)
@@ -75,24 +75,24 @@ struct ContentView: View {
             Spacer()
         }
         // Every time the game turn changes, check if someone has won.
-        .onChange(of: self.gameTurn, perform: { _ in // This could give you the new value of game turn, which we don't care about since it just alternates
-            self.winner = nil // Assume no winner every time game turn changes
-            if allMatch(self.topLeft, self.topCenter, self.topRight) {
-                self.winner = self.topLeft
-            } else if allMatch(self.middleLeft, self.middleCenter, self.middleRight) {
-                self.winner = self.middleLeft
-            } else if allMatch(self.bottomLeft, self.bottomCenter, self.bottomRight) {
-                self.winner = self.bottomLeft
-            } else if allMatch(self.topLeft, self.middleLeft, self.bottomLeft) {
-                self.winner = self.topLeft
-            } else if allMatch(self.topCenter, self.middleCenter, self.bottomCenter) {
-                self.winner = self.topCenter
-            } else if allMatch(self.topRight, self.middleRight, self.bottomRight) {
-                self.winner = self.topRight
-            } else if allMatch(self.topLeft, self.middleCenter, self.bottomRight) {
-                self.winner = self.topLeft
-            } else if allMatch(self.topRight, self.middleCenter, self.bottomLeft) {
-                self.winner = self.topRight
+        .onChange(of: gameTurn, perform: { _ in // This could give you the new value of game turn, which we don't care about since it just alternates
+            winner = nil // Assume no winner every time game turn changes
+            if allMatch(topLeft, topCenter, topRight) {
+                winner = topLeft
+            } else if allMatch(middleLeft, middleCenter, middleRight) {
+                winner = middleLeft
+            } else if allMatch(bottomLeft, bottomCenter, bottomRight) {
+                winner = bottomLeft
+            } else if allMatch(topLeft, middleLeft, bottomLeft) {
+                winner = topLeft
+            } else if allMatch(topCenter, middleCenter, bottomCenter) {
+                winner = topCenter
+            } else if allMatch(topRight, middleRight, bottomRight) {
+                winner = topRight
+            } else if allMatch(topLeft, middleCenter, bottomRight) {
+                winner = topLeft
+            } else if allMatch(topRight, middleCenter, bottomLeft) {
+                winner = topRight
             }
         })
     }
@@ -111,7 +111,7 @@ struct GameBoxView: View {
     @Binding var gameTurn: GameTurn
     
     var body: some View {
-        Image(systemName: self.systemName)
+        Image(systemName: systemName)
             .resizable()
             .frame(width: 40, height: 40) // Make the image bigger
             .overlay(
@@ -125,14 +125,14 @@ struct GameBoxView: View {
                 // TODO: Don't allow playing on a taken box.
                 switch gameTurn {
                 case .X:
-                    self.systemName = "xmark"
+                    systemName = "xmark"
                     break
                 case .O:
-                    self.systemName = "circle"
+                    systemName = "circle"
                     break
                 }
                 // Alternate game turn
-                self.gameTurn = gameTurn == .X ? .O : .X
+                gameTurn = gameTurn == .X ? .O : .X
             }
     }
 }
